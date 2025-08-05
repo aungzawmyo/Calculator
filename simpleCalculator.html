@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ဂဏန်းတွက်စက်</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-gray-200 to-black min-h-screen flex items-center justify-center">
+
+  <my-ကွဲအုပ်စု အတန်း="bg-gray-200 rounded-2xl p-6 shadow-2xl w-80">
+    <my-ကွဲအုပ်စု အိုင်ဒီ="ပြသ" အတန်း="bg-black text-white text-right text-2xl p-4 rounded-md mb-4 shadow-inner">
+      0
+    </my-ကွဲအုပ်စု>
+
+    <my-ကွဲအုပ်စု အတန်း="grid grid-cols-4 gap-4">
+      <!-- Row 1 -->
+      <m-ခလုတ် အတန်း="ခလ" နှိပ်လိုက်သည်="ရှင်းမယ်()">C</m-ခလုတ်>
+      <m-ခလုတ် အတန်း="ခလ" နှိပ်လိုက်သည်="ဖျက်မယ်()">←</m-ခလုတ်>
+      <m-ခလုတ် အတန်း="ခလ" နှိပ်လိုက်သည်="ထည့်မယ်('%')">%</m-ခလုတ်>
+      <m-ခလုတ် အတန်း="ခလ bg-orange-500 hover:bg-orange-600" နှိပ်လိုက်သည်="ထည့်မယ်('/')">÷</m-ခလုတ်>
+
+      <!-- Row 2 -->
+      <m-ခလုတ် အတန်း="ခလ" နှိပ်လိုက်သည်="ထည့်မယ်('7')">7</m-ခလုတ်>
+      <m-ခလုတ် အတန်း="ခလ" နှိပ်လိုက်သည်="ထည့်မယ်('8')">8</m-ခလုတ်>
+      <m-ခလုတ် အတန်း="ခလ" နှိပ်လိုက်သည်="ထည့်မယ်('9')">9</m-ခလုတ်>
+      <m-ခလုတ် အတန်း="ခလ bg-orange-500 hover:bg-orange-600" နှိပ်လိုက်သည်="ထည့်မယ်('*')">×</m-ခလုတ်>
+
+      <!-- Row 3 -->
+      <m-ခလုတ် အတန်း="ခလ" နှိပ်လိုက်သည်="ထည့်မယ်('4')">4</m-ခလုတ်>
+      <m-ခလုတ် အတန်း="ခလ" နှိပ်လိုက်သည်="ထည့်မယ်('5')">5</m-ခလုတ်>
+      <m-ခလုတ် အတန်း="ခလ" နှိပ်လိုက်သည်="ထည့်မယ်('6')">6</m-ခလုတ်>
+      <m-ခလုတ် အတန်း="ခလ bg-orange-500 hover:bg-orange-600" နှိပ်လိုက်သည်="ထည့်မယ်('-')">−</m-ခလုတ်>
+
+      <!-- Row 4 -->
+      <m-ခလုတ် အတန်း="ခလ" နှိပ်လိုက်သည်="ထည့်မယ်('1')">1</m-ခလုတ်>
+      <m-ခလုတ် အတန်း="ခလ" နှိပ်လိုက်သည်="ထည့်မယ်('2')">2</m-ခလုတ်>
+      <m-ခလုတ် အတန်း="ခလ" နှိပ်လိုက်သည်="ထည့်မယ်('3')">3</m-ခလုတ်>
+      <m-ခလုတ် အတန်း="ခလ bg-orange-500 hover:bg-orange-600" နှိပ်လိုက်သည်="ထည့်မယ်('+')">+</m-ခလုတ်>
+
+      <!-- Row 5 -->
+      <m-ခလုတ် အတန်း="ခလ col-span-2" နှိပ်လိုက်သည်="ထည့်မယ်('0')">0</m-ခလုတ်>
+      <m-ခလုတ် အတန်း="ခလ" နှိပ်လိုက်သည်="ထည့်မယ်('.')">.</m-ခလုတ်>
+      <m-ခလုတ် အတန်း="ခလ bg-green-500 hover:bg-green-600" နှိပ်လိုက်သည်="တွက်မယ်()">=</m-ခလုတ်>
+    </my-ကွဲအုပ်စု>
+  </my-ကွဲအုပ်စု>
+
+  <script>
+    customElements.define("m-ခလုတ်", class extends HTMLElement {
+      connectedCallback() {
+        const btn = document.createElement("button");
+        btn.innerHTML = this.innerHTML;
+        const classAttr = this.getAttribute("အတန်း");
+        if (classAttr) btn.setAttribute("class", classAttr);
+        const clickAttr = this.getAttribute("နှိပ်လိုက်သည်");
+        if (clickAttr) btn.setAttribute("onclick", clickAttr);
+        this.replaceWith(btn);
+      }
+    });
+
+    customElements.define("my-ကွဲအုပ်စု", class extends HTMLElement {
+      connectedCallback() {
+        const div = document.createElement("div");
+        div.innerHTML = this.innerHTML;
+        const classAttr = this.getAttribute("အတန်း");
+        if (classAttr) div.setAttribute("class", classAttr);
+        const idAttr = this.getAttribute("အိုင်ဒီ");
+        if (idAttr) div.setAttribute("id", idAttr);
+        this.replaceWith(div);
+      }
+    });
+  </script>
+
+  <script>
+    let မှတ်ဉာဏ် = "";
+
+    function ပြသသတ်မှတ်(အကြောင်းအရာ) {
+      document.getElementById("ပြသ").innerText = အကြောင်းအရာ;
+    }
+
+    function ထည့်မယ်(တန်ဖိုး) {
+      မှတ်ဉာဏ် += တန်ဖိုး;
+      ပြသသတ်မှတ်(မှတ်ဉာဏ်);
+    }
+
+    function ရလဒ်တွက်() {
+      try {
+        မှတ်ဉာဏ် = eval(မှတ်ဉာဏ်).toString();
+        ပြသသတ်မှတ်(မှတ်ဉာဏ်);
+      } catch (error) {
+        ပြသသတ်မှတ်("အမှား");
+        မှတ်ဉာဏ် = "";
+      }
+    }
+
+    function ရှင်းမယ်() {
+      မှတ်ဉာဏ် = "";
+      ပြသသတ်မှတ်("0");
+    }
+
+    function ဖျက်မယ်() {
+      မှတ်ဉာဏ် = မှတ်ဉာဏ်.slice(0, -1);
+      ပြသသတ်မှတ်(မှတ်ဉာဏ် || "0");
+    }
+
+    function တွက်မယ်() {
+      ရလဒ်တွက်();
+    }
+  </script>
+
+  <style>
+    .ခလ {
+      @apply bg-gray-700 text-white text-xl font-bold py-4 rounded-xl shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-150 active:scale-95;
+    }
+  </style>
+
+</body>
+</html>
